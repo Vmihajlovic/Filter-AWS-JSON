@@ -2,7 +2,7 @@ import json
 import requests
 
 #Program to retrieve AWS JSON file and print appropriate IP ranges
-#this will allow retrieve EC2 services
+#this will only retrieve EC2 services
 url = 'https://ip-ranges.amazonaws.com/ip-ranges.json' # location of the JSON file from AWS
 response = requests.get(url) #saves the response
 data = response.json() #saves json to python object
