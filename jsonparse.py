@@ -2,6 +2,7 @@ import json
 import requests
 
 #Program to retrieve AWS JSON file and print appropriate IP ranges
+#this will allow retrieve EC2 services
 url = 'https://ip-ranges.amazonaws.com/ip-ranges.json' # location of the JSON file from AWS
 response = requests.get(url) #saves the response
 data = response.json() #saves json to python object
@@ -11,6 +12,7 @@ masterList = data['prefixes']
 regionInput = input("enter your region: ")
 #serviceInput = input("enter your service: ")
 
+#EC2 is hardcoded below
 for i, entry in enumerate(masterList):
     if entry['service'] == 'EC2' and entry['region'] == regionInput:
         print(entry['service'],entry['ip_prefix'],entry['region']);
